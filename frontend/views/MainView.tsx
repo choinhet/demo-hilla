@@ -2,15 +2,17 @@ import {VerticalLayout} from "@hilla/react-components/VerticalLayout";
 import React, {useCallback} from "react";
 import {Button, ButtonElement} from "@hilla/react-components/Button";
 import {Notification} from "@hilla/react-components/Notification";
+import {HelloService} from "Frontend/generated/endpoints";
 
 export default function MainView() {
     const onButtonClick = useCallback((event: React.MouseEvent<ButtonElement, MouseEvent>) => {
-        const buttonName = event.currentTarget.textContent
+        const buttonName = event.currentTarget.textContent || 'Undefined Button Clicked';
         Notification.show(`${buttonName} clicked!`, {
             position: 'middle',
             duration: 1000,
             theme: 'success',
         })
+        HelloService.buttonClicked(buttonName).then()
     }, []);
 
     return (
