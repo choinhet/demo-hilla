@@ -1,9 +1,27 @@
+import {VerticalLayout} from "@hilla/react-components/VerticalLayout";
+import React, {useCallback} from "react";
+import {Button, ButtonElement} from "@hilla/react-components/Button";
+import {Notification} from "@hilla/react-components/Notification";
+
 export default function MainView() {
+    const onButtonClick = useCallback((event: React.MouseEvent<ButtonElement, MouseEvent>) => {
+        const buttonName = event.currentTarget.textContent
+        Notification.show(`${buttonName} clicked!`, {
+            position: 'middle',
+            duration: 1000,
+            theme: 'success',
+        })
+    }, []);
+
     return (
-        <div className="flex flex-col h-full items-center justify-center p-l text-center box-border">
-            <img style={{width: '200px'}} src="images/empty-plant.png"/>
-            <h2>This place intentionally left empty</h2>
-            <p>It’s a place where you can grow your own UI 🤗</p>
-        </div>
+        <VerticalLayout
+            theme="spacing padding"
+            className="height-4xl"
+            style={{ justifyContent: 'center' }}
+        >
+            <Button onClick={onButtonClick}>Button 1</Button>
+            <Button onClick={onButtonClick}>Button 2</Button>
+            <Button onClick={onButtonClick}>Button 3</Button>
+        </VerticalLayout>
     );
 }
