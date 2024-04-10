@@ -20,7 +20,10 @@ export type NonIndexViewRouteObject = Override<
 export type ViewRouteObject = IndexViewRouteObject | NonIndexViewRouteObject;
 
 export const routes: readonly ViewRouteObject[] = [
-    {path: '/', element: <MainView/>, handle: {icon: 'globe-solid', title: 'Hello React'}},
+    {
+        path: '/',
+        element: <MainView/>,
+    },
 ];
 
 const router = createBrowserRouter([...routes]);
