@@ -2,7 +2,7 @@ import {VerticalLayout} from "@hilla/react-components/VerticalLayout";
 import React, {useCallback} from "react";
 import {Button, ButtonElement} from "@hilla/react-components/Button";
 import {Notification} from "@hilla/react-components/Notification";
-import {HelloService} from "Frontend/generated/endpoints";
+import {HelloEndpoint} from "Frontend/generated/endpoints";
 
 export default function MainView() {
     const onButtonClick = useCallback((event: React.MouseEvent<ButtonElement, MouseEvent>) => {
@@ -12,7 +12,7 @@ export default function MainView() {
             duration: 1000,
             theme: 'success',
         })
-        HelloService.buttonClicked(buttonName).then()
+        HelloEndpoint.buttonClicked(buttonName).then()
     }, []);
 
     return (

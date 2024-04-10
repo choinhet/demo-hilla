@@ -1,19 +1,19 @@
-package org.choinhet.demohilla.service
+package org.choinhet.demohilla.endpoint
 
 import com.vaadin.flow.server.auth.AnonymousAllowed
 import dev.hilla.BrowserCallable
+import dev.hilla.Endpoint
 import org.slf4j.LoggerFactory
-import org.springframework.stereotype.Service
 
 
-@Service
+@Endpoint
 @BrowserCallable
 @AnonymousAllowed
-class HelloService {
+class HelloEndpoint {
 
     fun buttonClicked(which: String): Unit = log.info("Button clicked: $which")
 
     private companion object {
-        private val log = LoggerFactory.getLogger(HelloService::class.java)
+        private val log = LoggerFactory.getLogger(HelloEndpoint::class.java)
     }
 }
